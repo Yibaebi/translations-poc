@@ -31,7 +31,6 @@ export interface WebSocketCallbacks {
   onError?: (error: string, language?: string) => void
 }
 
-// src/services/websocket.ts
 class TranslationWebSocket {
   private ws: WebSocket | null = null
   private clientId: string
@@ -51,6 +50,7 @@ class TranslationWebSocket {
   constructor() {
     this.clientId = this.generateClientId()
     this.wsUrl = import.meta.env.VITE_WS_URL || 'ws://localhost:8000'
+    console.log('WebSocket URL:', this.wsUrl)
   }
 
   private generateClientId(): string {
